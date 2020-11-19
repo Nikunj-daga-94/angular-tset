@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { products, agentMock } from "../products";
-import { scriptList } from "../../assets/transcript";
+import scriptList from "../../assets/transcript.json";
+import mckCall from "../../assets/mack-call.json";
 // import { MatSelectModule } from "@angular/material/select";
 interface Food {
   name: string;
@@ -13,21 +14,29 @@ interface Food {
   selector: "app-top-bar",
   templateUrl: "./top-bar.component.html",
   styleUrls: ["./top-bar.component.css"]
-  // animations: [
-  //   trigger("routerAnimations", [
-  //     state("collapsed", style({ height: "0px", minHeight: "0" })),
-  //     state("expanded", style({ height: "*" })),
-  //     transition(
-  //       "expanded <=> collapsed",
-  //       animate("225ms cubic-bezier(0.4, 0.0, 0.2, 1)")
-  //     )
-  //   ])
-  // ]
 })
 export class TopBarComponent implements OnInit {
   constructor() {}
   // selected = "option2";
   foods = agentMock;
+  mockCall = mckCall.map(
+    data =>
+      data.call_start_time
+        .substr(0, 10)
+        .split("-")
+        .reverse()
+        .join(".") +
+      " - " +
+      data.customer[0].full_name
+  );
+  onAgentSelect(value) {
+    const id = this.foods.find(data => data.full_name == value).agent_id;
+    console.log(id);
+  }
+  onCallChange(value) {
+    const callname = value;
+    console.log(callname.split(" - ")[1]);
+  }
   ngOnInit() {}
 }
 
