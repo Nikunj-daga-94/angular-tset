@@ -1,0 +1,21 @@
+<a [routerLink]="['/']">
+  <!-- <h4>My Store</h4> -->
+  <mat-form-field appearance="fill">
+    <mat-label></mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.full_name">
+        {{food.full_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</a>
+
+<a class="button fancy-button"
+  ><i class="material-icons">shopping_cart</i>Checkout</a
+>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
