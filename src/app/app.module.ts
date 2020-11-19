@@ -11,6 +11,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductListComponent } from "./product-list/product-list.component";
+import { HeaderComponent } from "./header/header.component";
+import { TableMapComponent } from "./table-map/table-map.component";
 
 @NgModule({
   imports: [
@@ -22,7 +24,13 @@ import { ProductListComponent } from "./product-list/product-list.component";
     FormsModule,
     RouterModule.forRoot([{ path: "", component: ProductListComponent }])
   ],
-  declarations: [AppComponent, TopBarComponent, ProductListComponent],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    ProductListComponent,
+    HeaderComponent,
+    TableMapComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
