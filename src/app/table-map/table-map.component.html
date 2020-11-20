@@ -1,0 +1,25 @@
+<div class="header-top-stat">
+	<div>Real</div>
+	<div class="piechart"></div>
+</div>
+<div class="table-responsive">
+	<table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+		<ng-container matColumnDef="time">
+			<th mat-header-cell #scrollCtrl *matHeaderCellDef> Time </th>
+			<td mat-cell #scrollCtrl #scrl *matCellDef="let element"> {{element.time}}</td>
+		</ng-container>
+		<ng-container matColumnDef="channel">
+			<th mat-header-cell #scrollCtrl *matHeaderCellDef> Channel </th>
+			<td mat-cell #scrollCtrl #scrl *matCellDef="let element"> {{element.channel}}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="sentence">
+			<th mat-header-cell #scrollCtrl *matHeaderCellDef> Sentence </th>
+			<td mat-cell [matTooltip]="element.matching_sentence" matTooltipPosition="above" class="hoverBody"
+				*matCellDef="let element"> {{element.sentence}}</td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+</div>

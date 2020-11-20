@@ -1,18 +1,25 @@
-<a [routerLink]="['/']">
-  <!-- <h4>My Store</h4> -->
-  <mat-form-field appearance="fill">
-    <mat-label></mat-label>
-    <mat-select>
-      <mat-option *ngFor="let food of foods" [value]="food.full_name">
-        {{food.full_name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</a>
+<!-- <a [routerLink]="['/']"> -->
+<!-- <h4>My Store</h4> -->
+<mat-form-field appearance="fill">
+	<mat-label>Agent</mat-label>
+	<mat-select (selectionChange)="onAgentSelect($event.value)">
+		<mat-option>None</mat-option>
+		<mat-option *ngFor="let food of foods" [value]="food.full_name">
+			{{food.full_name}}
+		</mat-option>
+	</mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+	<mat-label>Call</mat-label>
+	<mat-select (selectionChange)="onCallChange($event.value)">
+		<mat-option>None</mat-option>
+		<mat-option *ngFor="let food of mockCall" [value]="food">
+			{{food}}
+		</mat-option>
+	</mat-select>
+</mat-form-field>
+<!-- </a> -->
 
-<a class="button fancy-button"
-  ><i class="material-icons">shopping_cart</i>Checkout</a
->
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
