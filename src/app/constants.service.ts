@@ -1,21 +1,24 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-
+export interface Info {
+  displayElement: boolean;
+}
 @Injectable()
 export class ConstantsService {
-  displayElement = false;
+  info: Info = { displayElement: false };
+  // displayElement = false;
   isSidebarVisible: boolean;
 
   sidebarVisibilityChange: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
     this.sidebarVisibilityChange.subscribe(value => {
-      this.displayElement = value;
+      this.info.displayElement = value;
     });
   }
 
   toggleSidebarVisibility() {
-    this.sidebarVisibilityChange.next(!this.displayElement);
+    this.sidebarVisibilityChange.next(!this.info.displayElement);
   }
   ngOnDestroy() {
     //prevent memory leak when component destroyed

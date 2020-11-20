@@ -3,6 +3,8 @@ import { FormControl } from "@angular/forms";
 import { products, agentMock } from "../products";
 import scriptList from "../../assets/transcript.json";
 import mckCall from "../../assets/mack-call.json";
+// import { ConstantsService } from "./constants.service";
+import { ConstantsService } from "../constants.service";
 // import { MatSelectModule } from "@angular/material/select";
 interface Food {
   name: string;
@@ -16,7 +18,7 @@ interface Food {
   styleUrls: ["./top-bar.component.css"]
 })
 export class TopBarComponent implements OnInit {
-  constructor() {}
+  constructor(private _constant: ConstantsService) {}
   // selected = "option2";
   idVal: String;
   value: String;
@@ -34,17 +36,17 @@ export class TopBarComponent implements OnInit {
   onAgentSelect(value) {
     this.idVal = this.foods.find(data => data.full_name == value).agent_id;
     // console.log(this.idVal);
-    
+    this.change();
   }
   onCallChange(value) {
     const callname = value.split(" - ")[1];
     this.value = callname;
     console.log(callname);
+    this.change();
   }
-  change(){
-    if(this.idVal.length>0&&this.value.length>0){
-      this.
-
+  change() {
+    if (this.idVal.length > 0 && this.value.length > 0) {
+      this._constant.toggleSidebarVisibility();
     }
   }
   ngOnInit() {}
