@@ -12,7 +12,7 @@ export class ConstantsService {
   sidebarVisibilityChange: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
-    this.info.displayElement = false;
+    this.info.displayElement = true;
   }
 
   toggleSidebarVisibility() {

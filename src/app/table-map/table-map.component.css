@@ -1,0 +1,55 @@
+th.mat-header-cell,
+td.mat-cell {
+  padding-left: 10px;
+}
+.header-top-stat {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.piechart {
+  margin-top: 2px;
+  /* display: block;  */
+  /* position: absolute;  */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-image: conic-gradient(pink 70deg, lightblue 0 235deg, orange 0);
+}
+body,
+.piechart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-responsive {
+  padding: 10px;
+  display: block;
+  width: 50%;
+}
+.table-responsive table.mat-table {
+  margin-bottom: 1rem;
+  /* display: table; */
+  /* border-collapse: collapse; */
+  margin: 0px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.table-responsive::-webkit-scrollbar {
+  width: 0.3em;
+}
+.hoverBody:hover {
+  background-color: #bdbdc6;
+}
+.table-responsive::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  border: 0em;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border: 1px solid slategrey;
+  border-radius: 8px;
+}
