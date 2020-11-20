@@ -13,6 +13,9 @@ export class ProductListComponent implements OnInit {
   displayElement: boolean;
   constructor(private _constant: ConstantsService) {
     this.displayElement = this._constant.info.displayElement;
+    this._constant.sidebarVisibilityChange.subscribe(value => {
+      this.displayElement = value;
+    });
   }
   change() {
     this._constant.toggleSidebarVisibility();

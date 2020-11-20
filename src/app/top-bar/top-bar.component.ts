@@ -41,11 +41,16 @@ export class TopBarComponent implements OnInit {
   onCallChange(value) {
     const callname = value.split(" - ")[1];
     this.value = callname;
-    console.log(callname);
+    // console.log(callname);
     this.change();
   }
   change() {
-    if (this.idVal.length > 0 && this.value.length > 0) {
+    if (
+      this.idVal &&
+      this.value &&
+      this.idVal.length > 0 &&
+      this.value.length > 0
+    ) {
       this._constant.toggleSidebarVisibility();
     }
   }
