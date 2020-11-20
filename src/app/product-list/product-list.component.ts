@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
-
-import { products } from '../products';
+import { Component, OnInit } from "@angular/core";
+import { agentMock } from "../products";
+import transcript from "../../assets/transcript.json";
+import { ConstantsService } from "../constants.service";
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: "app-product-list",
+  templateUrl: "./product-list.component.html",
+  styleUrls: ["./product-list.component.css"]
 })
-export class ProductListComponent {
-  products = products;
-
-  share() {
-    window.alert('The product has been shared!');
+export class ProductListComponent implements OnInit {
+  products = agentMock;
+  displayElement: boolean;
+  constructor(private _constant: ConstantsService) {
+    this.displayElement = this._constant.displayElement;
   }
-}
+  change() {
+    this._constant.toggleSidebarVisibility();
+  }
+  ngOnInit(): void {}
 
+  //prevent memory leak when component destroyed
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTableModule } from "@angular/material/table";
 // import {} from '@angular/material'
 
 import { AppComponent } from "./app.component";
@@ -13,6 +14,7 @@ import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { HeaderComponent } from "./header/header.component";
 import { TableMapComponent } from "./table-map/table-map.component";
+import { ConstantsService } from './constants.service';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { TableMapComponent } from "./table-map/table-map.component";
     ReactiveFormsModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatTableModule,
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot([{ path: "", component: ProductListComponent }])
@@ -31,7 +34,8 @@ import { TableMapComponent } from "./table-map/table-map.component";
     HeaderComponent,
     TableMapComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [ConstantsService]
 })
 export class AppModule {}
 

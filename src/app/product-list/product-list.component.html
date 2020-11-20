@@ -1,4 +1,16 @@
-<h2>Products</h2>
+<div *ngIf="displayElement; else showThis">
+
+	<app-table-map></app-table-map>
+
+
+</div>
+
+<ng-template #showThis>
+	<h2>Selection pending</h2>
+	<div>Select a call from top menu and a transcript will be shown here</div>
+</ng-template>
+
+
 
 <!-- <div *ngFor="let product of products">
   <h3>

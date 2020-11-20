@@ -1,0 +1,23 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+		<!-- timeFrom Column -->
+		<ng-container matColumnDef="time">
+			<th mat-header-cell *matHeaderCellDef> Time </th>
+			<td mat-cell *matCellDef="let element"> {{element.time}} </td>
+		</ng-container>
+
+		<!-- Weight Column -->
+		<ng-container matColumnDef="channel">
+			<th mat-header-cell *matHeaderCellDef> Speaker </th>
+			<td mat-cell *matCellDef="let element"> {{element.channel}} </td>
+		</ng-container>
+
+		<!-- sentence Column -->
+		<ng-container matColumnDef="sentence">
+			<th mat-header-cell *matHeaderCellDef> Sentence </th>
+			<td mat-cell *matCellDef="let element"> {{element.sentence}} </td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>

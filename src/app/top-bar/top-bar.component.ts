@@ -18,6 +18,8 @@ interface Food {
 export class TopBarComponent implements OnInit {
   constructor() {}
   // selected = "option2";
+  idVal: String;
+  value: String;
   foods = agentMock;
   mockCall = mckCall.map(
     data =>
@@ -30,12 +32,20 @@ export class TopBarComponent implements OnInit {
       data.customer[0].full_name
   );
   onAgentSelect(value) {
-    const id = this.foods.find(data => data.full_name == value).agent_id;
-    console.log(id);
+    this.idVal = this.foods.find(data => data.full_name == value).agent_id;
+    // console.log(this.idVal);
+    
   }
   onCallChange(value) {
-    const callname = value;
-    console.log(callname.split(" - ")[1]);
+    const callname = value.split(" - ")[1];
+    this.value = callname;
+    console.log(callname);
+  }
+  change(){
+    if(this.idVal.length>0&&this.value.length>0){
+      this.
+
+    }
   }
   ngOnInit() {}
 }
