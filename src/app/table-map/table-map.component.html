@@ -1,19 +1,22 @@
 <div class="cover">
-	<div style="display:block">
+	<div class="table-cover">
 		<div class="header-top-stat">
-			<div>Real</div>
-			<div class="piechart"></div>
+			<div class="name-T">Real</div>
+			<div style="display:flex">
+				<div class="name-mark">100%</div>
+				<div class="piechart"></div>
+			</div>
 		</div>
 		<div class="table-responsive">
 			<table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 				<ng-container *ngFor="let col of displayedColumns">
 					<ng-container matColumnDef="{{col}}" *ngIf="col!='sentence' else loading">
-						<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col}} </th>
+						<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
 						<td mat-cell #scrollCtrl #scrl *matCellDef="let element"> {{element[col]}}</td>
 					</ng-container>
 					<ng-template #loading>
 						<ng-container matColumnDef="{{col}}">
-							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col}} </th>
+							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
 							<td mat-cell [matTooltip]="element.matching_sentence" matTooltipPosition="above"
 								class="hoverBody" ng-mouseover="showDefinition($event)" *matCellDef="let element">
 								{{element[col]}}</td>
@@ -25,21 +28,24 @@
 			</table>
 		</div>
 	</div>
-	<div style="display:block">
+	<div class="table-cover">
 		<div class="header-top-stat">
-			<div>Expected</div>
-			<div class="piechart-full"></div>
+			<div class="name-T">Expected</div>
+			<div style="display:flex">
+				<div class="name-mark">100%</div>
+				<div class="piechart-full"></div>
+			</div>
 		</div>
 		<div class="table-responsive2">
 			<table #table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 				<ng-container *ngFor="let col of displayedCol2">
 					<ng-container matColumnDef="{{col}}" *ngIf="col!='sentence' else loading2">
-						<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col}} </th>
+						<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
 						<td mat-cell #scrollCtrl #scrl *matCellDef="let element"> {{element[col]}}</td>
 					</ng-container>
 					<ng-template #loading2>
 						<ng-container matColumnDef="{{col}}">
-							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col}} </th>
+							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
 							<td mat-cell [matTooltip]="element.matching_sentence" matTooltipPosition="above"
 								class="hoverBody" ng-mouseover="showDefinition($event)" *matCellDef="let element">
 								{{element[col]}}</td>

@@ -18,6 +18,12 @@
 		</mat-option>
 	</mat-select>
 </mat-form-field>
+<div *ngIf="displayElement" style="display:flex">
+	<mat-slider min="0" max="100" step="1" value="{{gridsize}}" (input)="pitch($event)"></mat-slider>
+	<div style="padding: 14px;padding-left: 2px;">
+		{{ matValue }}%
+	</div>
+</div>
 <!-- </a> -->
 
 

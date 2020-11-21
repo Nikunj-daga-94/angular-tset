@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
 import { products, agentMock } from "../products";
-import scriptList from "../../assets/transcript.json";
 import mckCall from "../../assets/mack-call.json";
 // import { ConstantsService } from "./constants.service";
 import { ConstantsService } from "../constants.service";
@@ -18,7 +16,23 @@ interface Food {
   styleUrls: ["./top-bar.component.css"]
 })
 export class TopBarComponent implements OnInit {
-  constructor(private _constant: ConstantsService) {}
+  displayElement: boolean;
+  matValue: Number;
+  constructor(private _constant: ConstantsService) {
+    this._constant.changeValue.subscribe(value => {
+      this.matValue = value;
+    });
+    this.matValue = this._constant.info.matchValue;
+    this.displayElement = this._constant.info.displayElement;
+    this._constant.sidebarVisibilityChange.subscribe(value => {
+      this.displayElement = value;
+    });
+  }
+  gridsize: number = 38;
+  pitch(event) {
+    this.gridsize = event.value;
+    this._constant.togglematchValue(event.value);
+  }
   // selected = "option2";
   idVal: String;
   value: String;
@@ -34,14 +48,18 @@ export class TopBarComponent implements OnInit {
       data.customer[0].full_name
   );
   onAgentSelect(value) {
-    this.idVal = this.foods.find(data => data.full_name == value).agent_id;
-    // console.log(this.idVal);
+    if (value) {
+      this.idVal = this.foods.find(data => data.full_name == value).agent_id;
+      // console.log(this.idVal);
+    } else this.idVal = null;
     this.change();
   }
   onCallChange(value) {
-    const callname = value.split(" - ")[1];
-    this.value = callname;
-    // console.log(callname);
+    if (value) {
+      const callname = value.split(" - ")[1];
+      this.value = callname;
+    } else this.value = null;
+    console.log(this.value);
     this.change();
   }
   change() {
@@ -51,7 +69,9 @@ export class TopBarComponent implements OnInit {
       this.idVal.length > 0 &&
       this.value.length > 0
     ) {
-      this._constant.toggleSidebarVisibility();
+      this._constant.toggleSidebarVisibility(true);
+    } else {
+      this._constant.toggleSidebarVisibility(false);
     }
   }
   ngOnInit() {}

@@ -17,9 +17,7 @@ export class ProductListComponent implements OnInit {
       this.displayElement = value;
     });
   }
-  change() {
-    this._constant.toggleSidebarVisibility();
-  }
+
   ngOnInit(): void {}
 
   //prevent memory leak when component destroyed

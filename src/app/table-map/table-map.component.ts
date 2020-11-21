@@ -8,17 +8,26 @@ export interface PeriodicElement {
   channel: Number;
 }
 const Multidata: PeriodicElement[] = transcript.transcript.map(data => {
-  const val = data.timeFrom % 60,
-    div = Math.floor(data.timeFrom / 60);
-  return {
-    sentence: data.sentence,
-    matching_sentence: data.matching_sentence,
-    time: div + ":" + val,
-    channel: data.channel
-    // order: data.order
-    // similarity: data.similarity
-  };
-});
+    const val = data.timeFrom % 60,
+      div = Math.floor(data.timeFrom / 60);
+    return {
+      sentence: data.sentence,
+      matching_sentence:
+        data.matching_sentence == ""
+          ? ""
+          : Math.round(data.similarity * 100) +
+            "% match with Line:# " +
+            data.matching_sentence,
+      time: div + ":" + val,
+      channel: data.channel
+      // order: data.order
+      // similarity: data.similarity
+    };
+  }),
+  agentName = agentMock
+    .filter(data => (data.agent_id = transcript.agent[0].agent_id))[0]
+    .full_name.split(" ")[0],
+  custName = transcript.customer[0].full_name.split(" ")[0];
 @Component({
   selector: "app-table-map",
   templateUrl: "./table-map.component.html",
@@ -26,17 +35,28 @@ const Multidata: PeriodicElement[] = transcript.transcript.map(data => {
 })
 export class TableMapComponent {
   constructor() {}
-  dataSource = Multidata;
+  // agentName=agentLst;
+  dataSource = Multidata.map(data => {
+    return {
+      ...data,
+      speaker: data.channel == 1 ? agentName : custName
+    };
+  });
   dataSource2 = transcript.script.map(data => {
     return {
       line: data.order + 1,
       matching_sentence:
-        data.similarity * 100 + "% match " + data.matching_sentence,
-      sentence: data.sentence
+        data.matching_sentence == ""
+          ? ""
+          : Math.round(data.similarity * 100) +
+            "% match with Line:# " +
+            data.matching_sentence,
+      sentence: data.sentence,
+      speaker: "Rep:"
     };
   });
-  displayedColumns: string[] = ["time", "channel", "sentence"];
-  displayedCol2: string[] = ["sentence", "line"];
+  displayedColumns: string[] = ["time", "speaker", "sentence"];
+  displayedCol2: string[] = ["line", "speaker", "sentence"];
   showDefinition(event) {
     console.log("Event", event.target);
   }
