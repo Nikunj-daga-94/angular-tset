@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { products, agentMock } from "../products";
+import { agentMock } from "../products";
 import mckCall from "../../assets/mack-call.json";
 // import { ConstantsService } from "./constants.service";
 import { ConstantsService } from "../constants.service";
-// import { MatSelectModule } from "@angular/material/select";
+
 interface Food {
   name: string;
   price: number;
@@ -30,7 +30,7 @@ export class TopBarComponent implements OnInit {
   }
   gridsize: number = 38;
   pitch(event) {
-    this.gridsize = event.value;
+    // this.gridsize = event.value;
     this._constant.togglematchValue(event.value);
   }
   // selected = "option2";

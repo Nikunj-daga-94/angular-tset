@@ -1,4 +1,38 @@
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #1f1f1f; /*replace with your color*/
+}
 
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #1f1f1f; /*replace with your color*/
+}
+.first {
+  width: 25%;
+  margin-top: 18px;
+}
+.second {
+  width: 50%;
+  margin-top: 18px;
+  padding-left: 20px;
+}
+.sensitivity-txt {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.mat-slider-horizontal {
+  width: 25vw;
+}
+::ng-deep
+  .mat-slider:not(.mat-slider-disabled):not(.mat-slider-sliding)
+  .mat-slider-thumb {
+  bottom: -6px;
+  width: 1vw;
+  height: 1vw;
+}
+::ng-deep .mat-accent .mat-slider-thumb,
+::ng-deep .mat-accent .mat-slider-thumb-label,
+::ng-deep .mat-accent .mat-slider-track-fill {
+  background-color: #5a5a71;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

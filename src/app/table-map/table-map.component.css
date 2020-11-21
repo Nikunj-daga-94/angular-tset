@@ -1,6 +1,17 @@
-th.mat-header-cell,
-td.mat-cell {
+th.mat-header-cell {
   padding-left: 10px;
+}
+table {
+  border-collapse: separate;
+}
+td.mat-cell {
+  /* padding: 10px; */
+  border: 10px solid #ffffff;
+}
+
+.mat-column-sentence {
+  padding: 10px;
+  border-spacing: 2px;
 }
 th.mat-header-cell {
   color: #1f1f1f;
@@ -16,6 +27,9 @@ th.mat-header-cell {
   margin-right: 4px;
   background-color: #efeff1;
   border-radius: 10px 10px 0px 0px;
+}
+.highlight {
+  background-color: #dedee3;
 }
 .name-T {
   font-size: 12px;

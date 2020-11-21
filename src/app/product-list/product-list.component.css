@@ -1,6 +1,10 @@
 table {
   width: 100%;
 }
+.text-center {
+  width: 100vw;
+  text-align: center;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

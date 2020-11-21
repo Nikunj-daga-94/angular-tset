@@ -4,9 +4,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // import { FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { MatSelectModule } from "@angular/material/select";
+// import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatTableModule } from "@angular/material/table";
+// import { MatTableModule } from "@angular/material/table";
 // import {} from '@angular/material'
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
@@ -19,9 +19,8 @@ import { DemoMaterialModule } from "./material-module";
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    MatSelectModule,
     MatFormFieldModule,
-    MatTableModule,
+
     DemoMaterialModule,
     BrowserAnimationsModule,
     FormsModule,

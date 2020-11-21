@@ -3,7 +3,7 @@
 		<div class="header-top-stat">
 			<div class="name-T">Real</div>
 			<div style="display:flex">
-				<div class="name-mark">100%</div>
+				<div class="name-mark">{{avg}}%</div>
 				<div class="piechart"></div>
 			</div>
 		</div>
@@ -17,8 +17,9 @@
 					<ng-template #loading>
 						<ng-container matColumnDef="{{col}}">
 							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
-							<td mat-cell [matTooltip]="element.matching_sentence" matTooltipPosition="above"
-								class="hoverBody" ng-mouseover="showDefinition($event)" *matCellDef="let element">
+							<td mat-cell [ngClass]="element.classNm" [matTooltip]="element.matching_sentence"
+								matTooltipPosition="above" class="hoverBody" (ng-mouseover)="showDefinition($event)"
+								*matCellDef="let element">
 								{{element[col]}}</td>
 						</ng-container>
 					</ng-template>
@@ -46,8 +47,9 @@
 					<ng-template #loading2>
 						<ng-container matColumnDef="{{col}}">
 							<th mat-header-cell #scrollCtrl *matHeaderCellDef> {{col| titlecase}} </th>
-							<td mat-cell [matTooltip]="element.matching_sentence" matTooltipPosition="above"
-								class="hoverBody" ng-mouseover="showDefinition($event)" *matCellDef="let element">
+							<td mat-cell [ngClass]="[element.classNm,'element.hover']"
+								[matTooltip]="element.matching_sentence" matTooltipPosition="above" class="hoverBody"
+								(ng-mouseover)="showDefinition($event)" *matCellDef="let element">
 								{{element[col]}}</td>
 						</ng-container>
 					</ng-template>

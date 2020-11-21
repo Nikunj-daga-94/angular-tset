@@ -27,5 +27,6 @@ export class ConstantsService {
   ngOnDestroy() {
     //prevent memory leak when component destroyed
     this.sidebarVisibilityChange.unsubscribe();
+    this.changeValue.unsubscribe();
   }
 }

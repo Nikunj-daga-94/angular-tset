@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { agentMock } from "../products";
-import transcript from "../../assets/transcript.json";
+// import transcript from "../../assets/transcript.json";
 import { ConstantsService } from "../constants.service";
 
 @Component({
@@ -11,10 +11,13 @@ import { ConstantsService } from "../constants.service";
 export class ProductListComponent implements OnInit {
   products = agentMock;
   displayElement: boolean;
+  classList: boolean;
   constructor(private _constant: ConstantsService) {
     this.displayElement = this._constant.info.displayElement;
+    this.classList = !this.displayElement;
     this._constant.sidebarVisibilityChange.subscribe(value => {
       this.displayElement = value;
+      this.classList = !value;
     });
   }
 
