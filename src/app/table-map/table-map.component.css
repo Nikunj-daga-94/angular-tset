@@ -8,36 +8,35 @@ th.mat-header-cell {
 }
 .header-top-stat {
   display: flex;
+  height: 25px;
   justify-content: space-between;
   /* width: 45%; */
-  /* padding-left: 4%; */
+  padding-right: 4%;
   /* margin-left: 4%; */
   margin-right: 4px;
   background-color: #efeff1;
   border-radius: 10px 10px 0px 0px;
 }
 .name-T {
-  font-size: 10px;
+  font-size: 12px;
   color: #1f1f1f;
   font-weight: 700;
-  padding-top: 6px;
-  padding-left: 20px;
+  padding-top: 8px;
+  padding-left: 25px;
 }
 .name-mark {
   font-size: 10px;
   color: #1f1f1f;
   font-weight: 700;
-  padding-top: 5px;
+  padding-top: 7px;
   padding-left: 0;
   padding-right: 10px;
 }
 .piechart,
 .piechart-full {
-  margin-top: 2px;
-  /* display: block;  */
-  /* position: absolute;  */
-  width: 15px;
-  height: 15px;
+  margin-top: 4px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   background-image: conic-gradient(
     pink 70deg,
