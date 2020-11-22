@@ -1,23 +1,32 @@
 <!-- <a [routerLink]="['/']"> -->
 <!-- <h4>My Store</h4> -->
-<mat-form-field appearance="fill">
-	<mat-label>Agent</mat-label>
-	<mat-select (selectionChange)="onAgentSelect($event.value)">
-		<mat-option>None</mat-option>
-		<mat-option *ngFor="let food of foods" [value]="food.full_name">
-			{{food.full_name}}
-		</mat-option>
-	</mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-	<mat-label>Call</mat-label>
-	<mat-select (selectionChange)="onCallChange($event.value)">
-		<mat-option>None</mat-option>
-		<mat-option *ngFor="let food of mockCall" [value]="food">
-			{{food}}
-		</mat-option>
-	</mat-select>
-</mat-form-field>
+<div style="width: 55%;">
+	<mat-form-field [ngClass]="'first'" appearance="fill">
+		<mat-label>Agent</mat-label>
+		<mat-select (selectionChange)="onAgentSelect($event.value)">
+			<mat-option>None</mat-option>
+			<mat-option *ngFor="let food of foods" [value]="food.full_name">
+				{{food.full_name}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field [ngClass]="'second'" appearance="fill">
+		<mat-label>Call</mat-label>
+		<mat-select (selectionChange)="onCallChange($event.value)">
+			<mat-option>None</mat-option>
+			<mat-option *ngFor="let food of mockCall" [value]="food">
+				{{food}}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</div>
+<div *ngIf="displayElement" style="display:flex">
+	<div class="sensitivity-txt">Matching Sensitivity</div>
+	<mat-slider min="0" max="100" step="1" value="{{gridsize}}" (input)="pitch($event)"></mat-slider>
+	<div style="padding: 14px;padding-left: 2px;">
+		{{ matValue }}%
+	</div>
+</div>
 <!-- </a> -->
 
 

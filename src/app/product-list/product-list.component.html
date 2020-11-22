@@ -1,4 +1,4 @@
-<div *ngIf="displayElement; else showThis">
+<div  *ngIf="displayElement; else showThis">
 
 	<app-table-map></app-table-map>
 
@@ -6,8 +6,10 @@
 </div>
 
 <ng-template #showThis>
-	<h2>Selection pending</h2>
-	<div>Select a call from top menu and a transcript will be shown here</div>
+	<div class="text-center">
+		<h2>Selection pending</h2>
+		<div>Select a call from top menu and a transcript analysis will be shown here</div>
+	</div>
 </ng-template>
 
 
