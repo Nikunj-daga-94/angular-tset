@@ -36,7 +36,7 @@ export class TopBarComponent implements OnInit {
   // selected = "option2";
   idVal: String;
   value: String;
-  foods = agentMock;
+  foods = [...agentMock];
   mockCall = mckCall.map(
     data =>
       data.call_start_time
@@ -49,7 +49,11 @@ export class TopBarComponent implements OnInit {
   );
   onAgentSelect(value) {
     if (value) {
-      this.idVal = this.foods.find(data => data.full_name == value).agent_id;
+      this.idVal = JSON.parse(
+        JSON.stringify(
+          this.foods.find(data => data.full_name == value).agent_id
+        )
+      );
       // console.log(this.idVal);
     } else this.idVal = null;
     this.change();
