@@ -9,7 +9,7 @@ import { ConstantsService } from "../constants.service";
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
-  products = [...agentMock];
+  products = JSON.parse(JSON.stringify(agentMock));
   displayElement: boolean;
   classList: boolean;
   constructor(private _constant: ConstantsService) {

@@ -54,7 +54,7 @@ const contantData = transcript.script.map(data => {
       similarity: similarity
     };
   }),
-  agentName = agentMock
+  agentName = JSON.parse(JSON.stringify(agentMock))
     .filter(data => (data.agent_id = transcript.agent[0].agent_id))[0]
     .full_name.split(" ")[0],
   custName = transcript.customer[0].full_name.split(" ")[0];
