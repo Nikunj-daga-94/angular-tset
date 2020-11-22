@@ -19,6 +19,7 @@ export class ConstantsService {
   }
 
   toggleSidebarVisibility(bool) {
+    if (bool == false) this.changeValue.next(38);
     this.sidebarVisibilityChange.next(bool);
   }
   togglematchValue(val: Number) {
