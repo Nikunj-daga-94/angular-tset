@@ -12,6 +12,7 @@ export interface PeriodicElement {
   similarity: number;
   classNm: String;
   speaker: string;
+  // order: number;
 }
 const contantData = transcript.script.map(data => {
     return {
@@ -49,7 +50,7 @@ const contantData = transcript.script.map(data => {
             '"',
       time: div + ":" + val,
       channel: data.channel,
-      // order: data.order
+      // order: data.order,
       similarity: similarity
     };
   }),
@@ -62,9 +63,10 @@ const contantData = transcript.script.map(data => {
   templateUrl: "./table-map.component.html",
   styleUrls: ["./table-map.component.css"]
 })
-export class TableMapComponent implements OnInit {
+export class TableMapComponent {
   matValue: Number = 38;
   avg = 35;
+  deg: number;
   constructor(private _constant: ConstantsService) {
     this._constant.changeValue.subscribe(value => {
       this.matValue = value;
@@ -89,6 +91,16 @@ export class TableMapComponent implements OnInit {
           this.dataSource.length) *
           100
       );
+    });
+    this._constant.hoverVal.subscribe(value => {
+      this.dataSource2 = this.dataSource2.map(data => {
+        let hovr = "highlight ";
+        if (data.line == value) hovr = hovr + "hover";
+        return {
+          ...data,
+          classNm: hovr
+        };
+      });
     });
     this.dataSource = Multidata.map(data => {
       let name = "",
@@ -125,7 +137,11 @@ export class TableMapComponent implements OnInit {
   displayedColumns: string[] = ["time", "speaker", "sentence"];
   displayedCol2: string[] = ["line", "speaker", "sentence"];
   showDefinition(event) {
-    console.log("Event", event.target);
+    let str = event.target.getAttribute("ng-reflect-message"),
+      line = str.substr(str.indexOf("Line:") + 5, 1);
+    this._constant.toggleHover(+line);
   }
-  ngOnInit(): void {}
+  hideHover() {
+    this._constant.toggleHover(0);
+  }
 }

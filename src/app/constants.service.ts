@@ -12,7 +12,7 @@ export class ConstantsService {
 
   sidebarVisibilityChange: Subject<boolean> = new Subject<boolean>();
   changeValue: Subject<Number> = new Subject<Number>();
-
+  hoverVal: Subject<Number> = new Subject<Number>();
   constructor() {
     this.info.displayElement = false;
     this.info.matchValue = 38;
@@ -23,6 +23,9 @@ export class ConstantsService {
   }
   togglematchValue(val: Number) {
     this.changeValue.next(val);
+  }
+  toggleHover(num: Number) {
+    this.hoverVal.next(num);
   }
   ngOnDestroy() {
     //prevent memory leak when component destroyed
