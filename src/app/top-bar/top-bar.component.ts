@@ -23,7 +23,7 @@ export class TopBarComponent implements OnInit {
     this._constant.changeValue.subscribe(value => {
       this.matValue = value;
     });
-    this.matValue = this._constant.info.matchValue;
+    this.matValue = 38;
     this.displayElement = this._constant.info.displayElement;
     this._constant.sidebarVisibilityChange.subscribe(value => {
       this.displayElement = value;
