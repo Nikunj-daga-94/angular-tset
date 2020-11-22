@@ -72,7 +72,7 @@ export class TopBarComponent implements OnInit {
       this.value &&
       this.idVal.length > 0 &&
       this.value.length > 0 &&
-      this.idVal === mckCall.agent[0].agent_id
+      this.idVal === mckCall[0].agent[0].agent_id
     ) {
       this._constant.toggleSidebarVisibility(true);
     } else {
