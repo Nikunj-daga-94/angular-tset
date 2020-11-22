@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { agentMock } from "../products";
 import mckCall from "../../assets/mack-call.json";
+import Call from "../../assets/transcript.json";
 // import { ConstantsService } from "./constants.service";
 import { ConstantsService } from "../constants.service";
 
@@ -36,7 +37,7 @@ export class TopBarComponent implements OnInit {
   // selected = "option2";
   idVal: String;
   value: String;
-  foods = [...agentMock];
+  foods = JSON.parse(JSON.stringify(agentMock));
   mockCall = mckCall.map(
     data =>
       data.call_start_time
@@ -72,7 +73,7 @@ export class TopBarComponent implements OnInit {
       this.value &&
       this.idVal.length > 0 &&
       this.value.length > 0 &&
-      this.idVal === mckCall[0].agent[0].agent_id
+      this.idVal === Call.agent[0].agent_id
     ) {
       this._constant.toggleSidebarVisibility(true);
     } else {
